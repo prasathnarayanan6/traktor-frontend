@@ -1,0 +1,21 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+body
+{
+  background: 0;
+  font-family: "DM Sans", serif;
+  font-optical-sizing: auto;
+  /* font-weight: 700; */
+  font-style: normal;
+}
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;            /* Chrome, Safari, and Opera */
+}
