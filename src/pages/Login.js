@@ -123,7 +123,7 @@ function Login() {
                             }
                             else if(response.data.result.role === 2)
                             {
-                                navigate('/home');
+                                navigate('/home?tab=overview');
                             }
                             else if(response.data.result.role === 3)
                             {

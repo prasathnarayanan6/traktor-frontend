@@ -20,6 +20,7 @@ import ChatMessage from '../assets/images/message.svg';
 import Mentorshipsvg from '../assets/images/Mentorships.svg';
 import Eventsvg from '../assets/images/Event.svg';
 import { useQuery } from "react-query";
+import { useLocation } from 'react-router-dom';
 function NavBar({onSelectionChange, selectedIndex}) {
   const [openNav, setOpenNav] = useState(false);
   // const openSideBar = () => {
@@ -186,10 +187,9 @@ function NavBar({onSelectionChange, selectedIndex}) {
   const handleActionClose = () => setActionpop(false);
 
   const [navList, setNavList] = useState(0);
-
-  const handleListChange = () => {
-    
-  }
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const tab = queryParams.get('tab');
   return (
     <div className="navbar dm-sans">
       <nav class="bg-white shadow-sm">
@@ -253,20 +253,22 @@ function NavBar({onSelectionChange, selectedIndex}) {
                         <a href="#" class="block py-2 px-3 text-black block py-2 px-3 text-black md:p-0 text-[#45C74D] hover:underline hover:underline-offset-[22px] hover:decoration-4 hover:decoration-[#45C74D]">Funding</a>
                       </li>
                     </ul> */}
-                      <div className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                            {color.map((colors, index) => (
-                                                  <button
-                                                  key={index}
-                                                  className="block py-2 px-3 text-black md:p-0 text-[#45C74D] hover:underline hover:underline-offset-[22px] hover:decoration-4 hover:decoration-[#45C74D]"
-                                                  // style={{ backgroundColor: selectedIndex === index ? darkColor : colors,
-                                                  //     color: selectedIndex === index ? 'white' : 'initial'
-                                                  //  }}
-                                                  onClick={() => {onSelectionChange(index);}}
-                                                  >
-                                                  {['Overview', 'Start-ups', 'Mentor', 'Funding'][index]}
-                                                  </button>
-                            ))}
-                      </div>
+                    {tab=="overview" && (
+                          <div className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                              {color.map((colors, index) => (
+                                                    <button
+                                                    key={index}
+                                                    className="block py-2 px-3 text-black md:p-0 text-[#45C74D] hover:underline hover:underline-offset-[22px] hover:decoration-4 hover:decoration-[#45C74D]"
+                                                    // style={{ backgroundColor: selectedIndex === index ? darkColor : colors,
+                                                    //     color: selectedIndex === index ? 'white' : 'initial'
+                                                    //  }}
+                                                    onClick={() => {onSelectionChange(index);}}
+                                                    >
+                                                    {['Overview', 'Start-ups', 'Mentor', 'Funding'][index]}
+                                                    </button>
+                              ))}
+                        </div>
+                    )}
                   </div>
                 </div>
       </nav>

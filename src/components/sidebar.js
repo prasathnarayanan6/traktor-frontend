@@ -35,7 +35,7 @@ function SideBar({children}) {
         <div className="md:px-[50px] pt-4"><img src={nirmaanlogo} className="w-[120px;]"/></div>
         <div className="">
             <ul className="py-5 px-8">
-                <li className="flex gap-5 hover:bg-[#45C74D] hover:rounded-xl p-2 hover:text-white mb-2 mt-2"><a href="/home" className="flex gap-5"><FaChartPie size={20}/> Dashboard</a></li>
+                <li className="flex gap-5 hover:bg-[#45C74D] hover:rounded-xl p-2 hover:text-white mb-2 mt-2"><a href="/home?tab=overview" className="flex gap-5"><FaChartPie size={20}/> Dashboard</a></li>
                 <li className="flex gap-5 hover:bg-[#45C74D] hover:rounded-xl p-2 hover:text-white mb-2"><a href="/startups" className="flex gap-5"><FaRocket size={20}/>Start-ups</a></li>
                 <li className="flex gap-5 hover:bg-[#45C74D] hover:rounded-xl p-2 hover:text-white mb-2"><a href="/mentors" className="flex gap-5"><FaChalkboardTeacher size={20}/>Mentors</a></li>
                 <li className="flex gap-5 hover:bg-[#45C74D] hover:rounded-xl p-2 hover:text-white mb-2"><a href="/mentors" className="flex gap-5"><FaBookOpen size={20}/>Mentorships</a></li>
