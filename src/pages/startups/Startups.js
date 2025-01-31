@@ -8,6 +8,7 @@ import { FaGears, FaIndianRupeeSign } from 'react-icons/fa6';
 import StackedHorizontalBarChart from '../../components/HorizontalChart';
 import '../../components/styles/style.css';
 import toast from 'react-hot-toast';
+import FilterSvg from '../../assets/images/Frame.svg'
 function Startups() {
     const [data, setData] = useState([]);
     useEffect(()=>{
@@ -110,6 +111,10 @@ function Startups() {
                 toast.error('Unknow error occured!')
             }
         }
+    const [showw, setShoww] = useState(false);
+        useEffect(() => {
+            setShoww(true);
+        }, [])
   return (
     <div className={`flex`}>
                     <div>
@@ -117,7 +122,45 @@ function Startups() {
                     </div>
                     <div className="ms-[221px] flex-grow">
                         <NavBar/>
-                        <div>Hello</div>
+                            <div className="bg-gray-100">
+                                <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}> 
+                                    <div className="border bg-white">
+                                            <div className="px-5 pt-6 text-md text-[#808080]">Dashboard<span> {'>'} </span>Start-ups</div>
+                                            <div className="font-bold text-lg px-5 pt-3">Start-ups</div>
+                                            <div className="flex justify-between px-5 mt-3">
+                                                <div className="relative">
+                                                    <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                                    <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                    </svg>
+                                                    </div>
+                                                    <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
+                                                </div>
+                                                <div className="flex justify-between gap-2">
+                                                        <button className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold">Add New Mentor</button>
+                                                        <button><img src={FilterSvg} /></button>
+                                                        <button><img src={FilterSvg} /></button>    
+                                                </div>
+                                            </div>
+                                            <div className="pt-3">
+                                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 px-5 mb-2">
+                                                            <div className="border">
+                                                                    <div></div>
+                                                            </div>
+                                                            <div className="border">
+                                                                    <div></div>
+                                                            </div>
+                                                            <div className="border">
+                                                                    <div></div>
+                                                            </div>
+                                                            <div className="border">
+                                                                    <div></div>
+                                                            </div>
+                                                    </div>  
+                                            </div>  
+                                    </div>
+                                </div>  
+                            </div>
                     </div>
     </div>
   )
