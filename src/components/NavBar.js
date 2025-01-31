@@ -19,6 +19,7 @@ import Mentorsvg from '../assets/images/Mentor.svg';
 import ChatMessage from '../assets/images/message.svg';
 import Mentorshipsvg from '../assets/images/Mentorships.svg';
 import Eventsvg from '../assets/images/Event.svg';
+import { useQuery } from "react-query";
 function NavBar({onSelectionChange, selectedIndex}) {
   const [openNav, setOpenNav] = useState(false);
   // const openSideBar = () => {
@@ -183,6 +184,12 @@ function NavBar({onSelectionChange, selectedIndex}) {
   const [actionpopup, setActionpop] = useState(false);
   const handleActionShow = () => setActionpop(true);
   const handleActionClose = () => setActionpop(false);
+
+  const [navList, setNavList] = useState(0);
+
+  const handleListChange = () => {
+    
+  }
   return (
     <div className="navbar dm-sans">
       <nav class="bg-white shadow-sm">
