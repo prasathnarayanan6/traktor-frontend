@@ -8,7 +8,8 @@ import { FaGears, FaIndianRupeeSign } from 'react-icons/fa6';
 import StackedHorizontalBarChart from '../../components/HorizontalChart';
 import '../../components/styles/style.css';
 import toast from 'react-hot-toast';
-import FilterSvg from '../../assets/images/Frame.svg'
+import FilterSvg from '../../assets/images/Frame.svg';
+import DownloadSvg from '../../assets/images/export excel.svg'
 function Startups() {
     const [data, setData] = useState([]);
     useEffect(()=>{
@@ -139,22 +140,19 @@ function Startups() {
                                                 <div className="flex justify-between gap-2">
                                                         <button className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold">Add New Mentor</button>
                                                         <button><img src={FilterSvg} /></button>
-                                                        <button><img src={FilterSvg} /></button>    
+                                                        <button><img src={DownloadSvg} /></button>    
                                                 </div>
                                             </div>
                                             <div className="pt-3">
-                                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 px-5 mb-2">
-                                                            <div className="border">
-                                                                    <div></div>
+                                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-5 px-5 mb-2">
+                                                            <div className="border shadow-lg">
+                                                                    <div>Hello</div>
                                                             </div>
-                                                            <div className="border">
-                                                                    <div></div>
+                                                            <div className="border shadow-lg">
+                                                                    <div>Hello</div>
                                                             </div>
-                                                            <div className="border">
-                                                                    <div></div>
-                                                            </div>
-                                                            <div className="border">
-                                                                    <div></div>
+                                                            <div className="border shadow-lg">
+                                                                    <div>Hello</div>
                                                             </div>
                                                     </div>  
                                             </div>  

@@ -82,7 +82,7 @@ function Mentor() {
             <div className="bg-gray-100">
                   <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}> 
                        <div className="border bg-white">
-                            <div className="px-5 pt-6 text-md text-[#808080]">Dashboard<span> - </span>Mentors</div>
+                            <div className="px-5 pt-6 text-md text-[#808080]">Dashboard<span> {'>'} </span>Mentors</div>
                             <div className="font-bold text-lg px-5 pt-3">Mentors</div>
                             <div className="flex justify-between px-5 mt-3">
                                   <div className="relative">
