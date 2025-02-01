@@ -2,31 +2,29 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+// import { l } from 'vitest/dist/index-9f5bc072';
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
 const DonutChart = (props) => {
   console.log(props)
+  let total_count = parseInt(props?.props?.props?.Funding_Distrubuted_data?.Total_teams_count_by_program?.Total_Pratham_count) + parseInt(props?.props?.props?.Funding_Distrubuted_data?.Total_teams_count_by_program?.Total_Akshar_count) + parseInt(props?.props?.props?.graduated_startups) + parseInt(props?.props?.props?.dropped_startups) ;
   const data = {
-    labels: ['Energy & Environment', 'Software & Data', 'Manufacturing & Industry', 'Agriculture & Food', 'Hardware & IoT', 'Edtech', 'Services', 'Ecommerce & Retail', 'Social & Leisure'],
+    labels: ['Pratham', 'Akshar', 'Active', 'Graduated'],
     datasets: [
       {
         label: 'My Donut Chart',
         data: [
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Energy_Akshar || 0),
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Software_Akshar || 0),
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Manufacturing_Akshar || 0),
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Agriculture_Akshar || 0),
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Hardware_Akshar || 0),
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Edtech_Akshar || 0),
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Services_Akshar || 0),
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Ecommerce_Akshar || 0),
-          parseInt(props?.props?.Funding_Distrubuted_data?.Akshar?.Social_Akshar || 0),
+          parseInt(props?.props?.props?.Funding_Distrubuted_data?.Total_teams_count_by_program?.Total_Pratham_count || 0),
+          parseInt(props?.props?.props?.Funding_Distrubuted_data?.Total_teams_count_by_program?.Total_Akshar_count || 0),
+          parseInt(props?.props?.props?.graduated_startups|| 0),
+          parseInt(props?.props?.props?.dropped_startups || 0),
         ],
         backgroundColor: [
-          'rgba(141, 182, 196)',
-          'rgb(96, 164, 189)',
-          'rgba(102, 131, 140)',
+          '#45C74D80',
+          '#FFB866',
+          '#C8DFFF',
+          '#FADADA'
         ],
         borderColor: [
           'rgba(255, 255, 255)',
@@ -61,10 +59,22 @@ const DonutChart = (props) => {
     },
   };
 
+  const textCenter = {
+    id: 'textCenter',
+    beforeDatasetsDraw(chart, args, pluginOptions){
+      const {ctx, data} = chart;
+      ctx.save();
+      ctx.font = 'bolder 15px sans-serif';
+      ctx.fillStyle = '#464646';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(`Total: ${total_count}`, chart.getDatasetMeta(0).data[0].x, chart.getDatasetMeta(0).data[0].y);
+    }
+  }
   return (
     <div>
       {/* <h2>Donut Chart</h2> */}
-      <Doughnut data={data} options={options} />
+      <Doughnut data={data} options={options} plugins={[textCenter]}/>
     </div>
   );
 };

@@ -18,7 +18,8 @@ import FundingUtilized from "../../components/FundingUtilized";
 import { Sidebar } from "flowbite-react";
 import { FaEllipsis, FaWallet } from "react-icons/fa6";
 import tired from '../../assets/images/Nandhinimamtraktor.png';
-import numberWithCommas from '../../components/CommaSeperation'
+import numberWithCommas from '../../components/CommaSeperation';
+import ImageSvg from '../../assets/images/image.svg';
 function Home() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [color, setColor] = useState(['#afdade', '#afd5de', '#afcdde', '#99b6bf', '#6d858c']);
@@ -49,7 +50,7 @@ function Home() {
     }, [])
     const[analysedData, setAnalysedData]= useState([])
     const isRemote = true;
-    const url =  'http://localhost:3003/api/v1/count-startupdata';
+    const url =  'http://10.42.66.68:3003/api/v1/count-startupdata';
     const AnalysisData = async() => {
         try
         {
@@ -86,30 +87,32 @@ function Home() {
                             <SideBar />
                     </div>
                     <div className="ms-[221px] flex-grow">
-                            <NavBar onSelectionChange={handleNavbarSelection} selectedIndex={selectedIndex}/>
-                            <div className={`bg-gray-100  `}>
+                            <div>
+                                <NavBar onSelectionChange={handleNavbarSelection} selectedIndex={selectedIndex}/>
+                            </div>
+                            <div className={`bg-gray-100`}>
                                 {selectedIndex===0 && (
                                     <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}>
                                                 <div className="grid grid-cols-3 gap-5">
                                                         <div className="border bg-white rounded-xl col-span-2">
                                                                     <div className="py-2 px-7 text-xl underline underline-offset-[13px] decoration-gray-200 ">General Dashboard</div>
                                                                     <div className="px-7 text-lg">Status</div>
-                                                                    <div className="flex justify-between px-7 gap-5 border-l-2 border-r-2 overflow-x-auto scrollbar-hidden">
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
-                                                                        <div className="border rounded-3xl p-3 border-2 border-[#45C74D]"><img src="../../assets/images/Nandhinimamtraktor.png"  className="w-100"/></div>
+                                                                    <div className="flex justify-between px-7 gap-5 border-l-2 border-r-2 overflow-x-auto scrollbar-hidden w-full h-auto">
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-full" width={100} height={100}/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg} className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
+                                                                        <div className="border rounded-3xl p-[25px] border-2 border-[#45C74D]"><img src={ImageSvg}  className="w-100"/></div>
                                                                     </div>
                                                                     <div className="py-2 px-7 text-lg ">Overview</div>
                                                                     <div className="grid grid-cols-4 gap-10 px-7 py-2">
@@ -157,7 +160,6 @@ function Home() {
                                                                             </div>
                                                                             <div className="shadow-lg border rounded-lg">
                                                                                             <div className="p-3 text-sm">External Funding</div>
-
                                                                                             <div className="px-3 flex justify-between">
                                                                                                     <div className="text-xl"><span>Rs.</span><span>{analysedData?.Funding_Distrubuted_data?.Total_funding_used?.Total_funding_remaining || 0}</span></div>
                                                                                                     <div className="bg-[#E54545] mb-1 rounded-xl p-2 text-white"><FaWallet size={20}/></div>

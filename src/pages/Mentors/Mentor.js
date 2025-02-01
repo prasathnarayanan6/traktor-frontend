@@ -7,7 +7,7 @@ import { ApiFetchMentor, ApiDeletMentorData } from "../../API/API";
 import toast from "react-hot-toast";
 import { GiConsoleController } from "react-icons/gi";
 import DeleteConfirmation from "../../components/DeleteConfirmation";
-
+import ImageSvg from '../../assets/images/image.svg';
 function Mentor() {
   const [openEstablishPopUp, setOpenEstablishPopUp] = useState(false);
   const handleEstablish = () => setOpenEstablishPopUp(true);
@@ -82,7 +82,7 @@ function Mentor() {
             <div className="bg-gray-100">
                   <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}> 
                        <div className="border bg-white">
-                            <div className="px-5 pt-6 text-md text-[#808080]">Dashboard<span> > </span>Mentors</div>
+                            <div className="px-5 pt-6 text-md text-[#808080]">Dashboard<span> - </span>Mentors</div>
                             <div className="font-bold text-lg px-5 pt-3">Mentors</div>
                             <div className="flex justify-between px-5 mt-3">
                                   <div className="relative">
@@ -96,12 +96,38 @@ function Mentor() {
                                   <button className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold">Add New Mentor</button>
                             </div>
                             <div className="pt-3">
-                                      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 px-5 mb-2">
-                                              <div className="border">
-                                                      <div></div>
+                                      <div className="grid grid-cols-2 md:grid-cols-3 gap-5 px-5 mb-2">
+                                              <div className="border shadow-xl rounded-xl">
+                                                      <div className="grid grid-cols-3 gap-5">
+                                                            <div className="col-span-1"><img src={ImageSvg} className="w-[100%]"/></div>
+                                                            <div className="col-span-2  pt-2">
+                                                                  <div className="grid grid-cols-2">
+                                                                      <div>
+                                                                          <div className="font-semibold">Mentor Name</div>
+                                                                          <div className="text-sm">Institution</div>
+                                                                      </div>
+                                                                      <div className="text-sm pt-[4px] ms-auto"><FaEllipsisV size={15}/></div>
+                                                                  </div>
+                                                                  <div className="border border-r-0 border-l-0 border-b-0 border-b-1 w-full mt-1">
+                                                                      <div className="pt-1 text-sm">
+                                                                          <div className="flex justify-start">
+                                                                              <div className="rounded-xl"><img src={ImageSvg} className="w-[13%]"/></div>
+                                                                              <img src={ImageSvg} className="w-[13%]"/>
+                                                                              <img src={ImageSvg} className="w-[13%]"/>
+                                                                              <img src={ImageSvg} className="w-[13%]"/>
+                                                                              <img src={ImageSvg} className="w-[13%]"/>
+                                                                              <img src={ImageSvg} className="w-[13%]"/>
+                                                                              <img src={ImageSvg} className="w-[13%]"/>
+                                                                          </div>
+                                                                      </div>
+                                                                  </div>
+                                                            </div>
+                                                      </div>
                                               </div>
                                               <div className="border">
-                                                      <div></div>
+                                                      <div className="flex justify-between">
+                                                            <div></div>
+                                                      </div>
                                               </div>
                                               <div className="border">
                                                       <div></div>

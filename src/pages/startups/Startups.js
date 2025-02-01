@@ -8,6 +8,8 @@ import { FaGears, FaIndianRupeeSign } from 'react-icons/fa6';
 import StackedHorizontalBarChart from '../../components/HorizontalChart';
 import '../../components/styles/style.css';
 import toast from 'react-hot-toast';
+import FrameSvg from '../../assets/images/Frame.svg';
+import ExportSvg from '../../assets/images/export excel.svg';
 function Startups() {
     const [data, setData] = useState([]);
     useEffect(()=>{
@@ -110,175 +112,142 @@ function Startups() {
                 toast.error('Unknow error occured!')
             }
         }
+
+    const [showw, setShoww] = useState(false);
+    useEffect(() => {
+        setShoww(true);
+    }, [])
   return (
-    <div className="h-screen flex">
-                    <section id="SideBar" className="fixed h-full">
+    <div className="flex">
+                    <div>
                         <SideBar />
-                    </section>
-                    <section className="flex-grow">
-                        <div className="fixed w-full">
+                    </div>
+                    <div className="ms-[221px] flex-grow">
+                        <div>
                             <NavBar />
                         </div>
-                        <div className="p-[90px;] h-full">
-                        <div className="flex justify-between">
-                                <h1 className="p-0 text-3xl font-semibold text-gray-500">Startups</h1>
-                                <a href={'/addstartup'} className="text-gray-500 text-sm font-semibold mt-1 p-1 px-3 rounded-xl shadow-md text-white" style={{backgroundColor: '#0b5f66'}}>Add new Startup</a>
-                        </div>
-                        <h1 className="p-0 text-lg text-gray-500 mt-1 ms-1  ">Analytics</h1>
-                            <div className={`flex justify-center items-center content ${show ? "visible": ""}`}>
-                                <div className="shadow-md rounded-sm mt-10 border flex justify-center items-center md:w-[95%]">
-                                     <div className="mt-10 mb-10  border-0 border-t-0  md:w-[95%]">
-                                                <div className="flex justify-between mb-4">
-                                                      <div>Show entries</div>
-                                                      <div><input type="text" className="rounded-sm border border-t-0 shadow-sm" placeholder="Search startups"/></div>
+                        <div className="bg-gray-100">
+                                <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}> 
+                                    <div className="border bg-white">
+                                            <div className="px-5 pt-6 text-md text-[#808080]">Dashboard<span>{' > '}</span>Start-ups</div>
+                                            <div className="font-bold text-lg px-5 pt-3">Start-ups</div>
+                                            <div className="flex justify-between px-5 mt-3">
+                                                <div className="relative">
+                                                    <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                                    <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                                    </svg>
+                                                    </div>
+                                                    <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
                                                 </div>
-                                                <table className="table-fixed w-full text-sm p-2">
-                                                        <thead>
-                                                        <tr>
-                                                            <th className="px-5 py-2 text-left text-green-600">Name</th>
-                                                            <th className="px-5 py-2 text-left text-green-600">Sector</th>
-                                                            <th className="px-5 py-2 text-left text-green-600">Program</th>
-                                                            <th className="px-5 py-2 text-left text-green-600">Founder Name</th>
-                                                            <th className="px-5 py-2 text-left text-green-600">Status</th>
-                                                            <th className="px-5 py-2 text-left text-green-600">Action</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            {currentMentors.length > 0 ? (
-                                                                currentMentors.map((dataObj, index) => (
-                                                                    <tr key={index} className="border-t border-gray-300 hover:bg-green-100">
-                                                                    <td className="px-5 py-2 font-semibold"><a href={`/startup/${dataObj.email_address}`}>{dataObj.startup_name}</a></td>
-                                                                    <td className="px-5 py-2">{dataObj.startup_sector}</td>
-                                                                    <td className="px-5 py-2"><span className="bg-green-200 p-1 rounded-xl">{dataObj.program}</span></td>
-                                                                    <td className="px-5 py-2">{dataObj.founder_name}</td>
-                                                                    {loading ? (
-                                                                        <td className="px-5 py-2">{dataObj.status === 'Active' && (<span className='p-1 bg-green-100 rounded-2xl px-2'>Active</span>)} {dataObj.status === 'Dropped' && (<span className='p-1 bg-red-100 rounded-2xl px-2'>Dropped</span>)} {dataObj.status === 'Graduated' && (<span className='p-1 bg-yellow-100 rounded-2xl px-2'>Graduated</span>)}</td>
-                                                                    ) : (
-                                                                        <td className="px-5 py-2">
-                                                                            <div role="status">
-                                                                                    <svg aria-hidden="true" class="inline w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-green-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                                        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-                                                                                        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
-                                                                                    </svg>
-                                                                                    <span class="sr-only">Loading...</span>
-                                                                            </div> 
-                                                                        </td>
-                                                                    )}
-                                                                    <td className="px-5 py-3">
-                                                                        {/* <button>
-                                                                        <FaEllipsisV />
-                                                                        </button> */}
-                                                                        <div className="flex space-x-5">
-                                                                                <button
-                                                                                    className="text-gray-400 relative group"
-                                                                                    onClick={() => handleDrop(dataObj.email_address)}
-                                                                                >
-                                                                                    <FaMinusCircle size={20}/>
-                                                                                    {/* <span className="absolute right-[5px] transform -translate-x-1/2 -translate-y-8 bg-gray-700 text-white text-xs p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                                                                        Mark as Dropped
-                                                                                    </span> */}
-                                                                                </button>
-                                                                                <button
-                                                                                    className="text-gray-400 relative group"
-                                                                                    onClick={() => handleGraduate(dataObj.email_address)}
-                                                                                >
-                                                                                    <FaPlusCircle  size={20}/>
-                                                                                    {/* <span className="absolute left-[50px] transform -translate-x-1/2 -translate-y-8 bg-gray-700 text-white text-xs p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                                                                        Mark as Graduated
-                                                                                    </span> */}
-                                                                                </button>
-
-                                                                                <button
-                                                                                    className="text-gray-400 relative group"
-                                                                                    onClick={() => handleActive(dataObj.email_address)}
-                                                                                >
-                                                                                    <FaThumbsUp  size={20}/>
-                                                                                    {/* <span className="absolute left-[50px] transform -translate-x-1/2 -translate-y-8 bg-gray-700 text-white text-xs p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                                                                        Mark as Active
-                                                                                    </span> */}
-                                                                                </button>
+                                                <div className="flex justify-between gap-4">
+                                                        <button className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold">Add New Start-ups</button>
+                                                        <button><img src={ExportSvg} /></button>
+                                                        <button><img src={FrameSvg} /></button>
+                                                </div>
+                                            </div>
+                                            <div className="pt-3">
+                                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-5 px-5 mb-2">
+                                                            <div className="border shadow-md rounded-lg px-1">
+                                                                    <div className="flex justify-end gap-3 my-2">
+                                                                            <div className="px-1 bg-[#D8F3D9] rounded-xl text-sm text-[#45C74D]">Active</div>
+                                                                            <div className="pt-[3px]"><FaEllipsisV size={14}/></div>
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center mt-5">
+                                                                            <img src={ExportSvg} />
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center mt-4">
+                                                                            <div className="text-sm">Start-up Name</div>
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center">
+                                                                            <div className="text-sm">MM/YY</div>
+                                                                    </div>
+                                                                    <div className="flex justify-between item-center mx-5 mt-10">
+                                                                            <div>
+                                                                                    <div className="font-semibold">Mentor</div>
+                                                                                    <div>Associated</div>
+                                                                            </div>
+                                                                            <div>
+                                                                                    <div className="font-semibold">Sector</div>
+                                                                                    <div>Automotive</div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div className="mx-5 text-md mt-5 font-semibold">Current Stage</div>
+                                                                    <div className="mx-5 mt-1">
+                                                                        <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
+                                                                                <div className="bg-[#45C74D] h-1.5 rounded-full" style={{width: '45%'}}></div>
                                                                         </div>
-                                                                    </td>
-                                                                    </tr>
-                                                                ))
-                                                                ) : (
-                                                                <tr>
-                                                                    <td colSpan="5" className="text-center py-2">
-                                                                    No data available
-                                                                    </td>
-                                                                </tr>
-                                                            )}
-                                                        </tbody>
-                                                </table>     
-                                        </div>
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center p-4">
-                                    <button
-                                    onClick={handlePreviousPage}
-                                    disabled={currentPage === 1}
-                                    className="text-gray-500 text-sm font-semibold mt-1 p-1 px-3 rounded-xl shadow-md"
-                                    style={{ backgroundColor: '#afdade' }}
-                                    >
-                                    Previous
-                                    </button>
-                                    <span className="text-sm">
-                                    Page {currentPage} of {totalPages}
-                                    </span>
-                                    <button
-                                    onClick={handleNextPage}
-                                    disabled={currentPage === totalPages}
-                                    className="text-gray-500 text-sm font-semibold mt-1 p-1 px-3 rounded-xl shadow-md"
-                                    style={{ backgroundColor: '#afdade' }}
-                                    >
-                                    Next
-                                    </button>
-                            </div>
-                            {/* <h1 className="text-3xl text-gray-500 font-semibold mt-3">Sectors</h1> */}
-                            {/* <div className={`grid md:grid-cols-5 gap-2 mt-3 pb-2 content ${show ? "visible": ""}`}>
-                                        <a href="/industrystartups" className="active:scale-[.98] active:duration-75 hover:scale-[1.02] ease-in-out transition-all">
-                                            <div className="shadow-md font-semibold rounded-lg w-[100%;] text-gray-600" style={{backgroundColor: '#afdade'}}>
-                                                    <div className="p-1 grid grid-cols-2">
-                                                            <div className="justify-center flex items-center pt-1 ps-4" style={{color: '#0b5f66'}}>Industry 4.0</div>
-                                                            <div className="justify-center flex items-center pt-3 pb-3" style={{color: '#0b5f66'}}><FaGears size={45}/></div>
-                                                    </div>
-                                            </div>
-                                        </a>
-                                        <a className="active:scale-[.98] active:duration-75 hover:scale-[1.02] ease-in-out transition-all">
-                                            <div className="shadow-md rounded-lg w-[100%;] font-semibold text-gray-600" style={{backgroundColor: '#afd5de'}}>
-                                                    <div className="p-1 grid grid-cols-2">
-                                                            <div className="justify-center flex items-center pt-1 ps-4" style={{color: '#0b5f66'}}>Healthcare</div>
-                                                            <div className="justify-center flex items-center pt-3 pb-3" style={{color: '#0b5f66'}}><FaUserMd size={45}/></div>
-                                                    </div>
-                                            </div>
-                                        </a>
-                                        <a className="active:scale-[.98] active:duration-75 hover:scale-[1.02] ease-in-out transition-all">
-                                            <div className="shadow-md rounded-lg w-[100%;] font-semibold text-gray-600" style={{backgroundColor: '#afcdde'}}>
-                                                    <div className="p-1 grid grid-cols-2">
-                                                            <div className="justify-center flex items-center pt-1 ps-4" style={{color: '#0b5f66'}}>Sustainability</div>
-                                                            <div className="justify-center flex items-center pt-3 pb-3" style={{color: '#0b5f66'}}><FaRecycle size={45}/></div>
-                                                    </div>
-                                            </div>
-                                        </a>
-                                        <a href="/fintechstartups" className="active:scale-[.98] active:duration-75 hover:scale-[1.02] ease-in-out transition-all">
-                                            <div className="shadow-md rounded-lg w-[100%;] font-semibold text-gray-600" style={{backgroundColor: '#97bfcc'}}>
-                                                    <div className="p-1 grid grid-cols-2">
-                                                            <div className="justify-center flex items-center pt-1 ps-4" style={{color: '#0b5f66'}}>FinTech</div>
-                                                            <div className="justify-center flex items-center pt-3 pb-3" style={{color: '#0b5f66'}}><FaIndianRupeeSign size={45}/></div>
-                                                    </div>
-                                            </div>
-                                        </a>
-                                        <a href="/mobilitystartups" className="active:scale-[.98] active:duration-75 hover:scale-[1.02] ease-in-out transition-all">
-                                            <div className="shadow-md rounded-lg w-[100%;] font-semibold text-gray-600" style={{backgroundColor: '#7dada3'}}>
-                                                    <div className="p-1 grid grid-cols-2">
-                                                            <div className="justify-center flex items-center pt-1 ps-4" style={{color: '#0b5f66'}}>Mobility</div>
-                                                            <div className="justify-center flex items-center pt-3 pb-3" style={{color: '#0b5f66'}}><FaCar size={45}/></div>
+                                                                    </div>
+                                                            </div>
+
+                                                            <div className="border shadow-md rounded-lg px-1">
+                                                                    <div className="flex justify-end gap-3 my-2">
+                                                                            <div className="px-1 bg-[#D8F3D9] rounded-xl text-sm text-[#45C74D]">Active</div>
+                                                                            <div className="pt-[3px]"><FaEllipsisV size={14}/></div>
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center mt-5">
+                                                                            <img src={ExportSvg} />
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center mt-4">
+                                                                            <div className="text-sm">Start-up Name</div>
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center">
+                                                                            <div className="text-sm">MM/YY</div>
+                                                                    </div>
+                                                                    <div className="flex justify-between item-center mx-5 mt-10">
+                                                                            <div>
+                                                                                    <div className="font-semibold">Mentor</div>
+                                                                                    <div>Associated</div>
+                                                                            </div>
+                                                                            <div>
+                                                                                    <div className="font-semibold">Sector</div>
+                                                                                    <div>Automotive</div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div className="mx-5 text-md mt-5 font-semibold">Current Stage</div>
+                                                                    <div className="mx-5 mt-1">
+                                                                        <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
+                                                                                <div className="bg-[#45C74D] h-1.5 rounded-full" style={{width: '45%'}}></div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                            <div className="border shadow-md rounded-lg px-1">
+                                                                    <div className="flex justify-end gap-3 my-2">
+                                                                            <div className="px-1 bg-[#D8F3D9] rounded-xl text-sm text-[#45C74D]">Active</div>
+                                                                            <div className="pt-[3px]"><FaEllipsisV size={14}/></div>
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center mt-5">
+                                                                            <img src={ExportSvg} />
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center mt-4">
+                                                                            <div className="text-sm">Start-up Name</div>
+                                                                    </div>
+                                                                    <div className="flex justify-center items-center">
+                                                                            <div className="text-sm">MM/YY</div>
+                                                                    </div>
+                                                                    <div className="flex justify-between item-center mx-5 mt-10">
+                                                                            <div>
+                                                                                    <div className="font-semibold">Mentor</div>
+                                                                                    <div>Associated</div>
+                                                                            </div>
+                                                                            <div>
+                                                                                    <div className="font-semibold">Sector</div>
+                                                                                    <div>Automotive</div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div className="mx-5 text-md mt-5 font-semibold">Current Stage</div>
+                                                                    <div className="mx-5 mt-1">
+                                                                        <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
+                                                                                <div className="bg-[#45C74D] h-1.5 rounded-full" style={{width: '45%'}}></div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
                                                     </div>  
-                                            </div>
-                                        </a>
-                            </div> */}
+                                            </div>  
+                                    </div>
+                                </div>  
                         </div>
-                    </section>
+                    </div>
     </div>
   )
 }
