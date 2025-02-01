@@ -50,7 +50,7 @@ function Home() {
     }, [])
     const[analysedData, setAnalysedData]= useState([])
     const isRemote = true;
-    const url =  'http://10.42.66.68:3003/api/v1/count-startupdata';
+    const url =  'http://localhost:3003/api/v1/count-startupdata';
     const AnalysisData = async() => {
         try
         {

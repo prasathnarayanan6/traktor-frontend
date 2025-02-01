@@ -93,7 +93,7 @@ function Mentor() {
                                     </div>
                                     <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
                                   </div>
-                                  <button className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold">Add New Mentor</button>
+                                  <a href="/mentor/new" className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold">Add New Mentor</a>
                             </div>
                             <div className="pt-3">
                                       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 px-5 mb-2">
