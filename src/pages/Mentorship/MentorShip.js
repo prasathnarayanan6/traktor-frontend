@@ -5,6 +5,7 @@ import DonutChart from "../../components/DonutChart";
 import Schedule from "./Schedule";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { FaEllipsis } from "react-icons/fa6";
 function MentorShip() {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -84,101 +85,198 @@ const ScheduleButton = async(e) => {
     StartupsData()
     MentorData()
   }, [])
+  const [showw, setShoww] = useState(false);
+    useEffect(() => {
+        setShoww(true);
+    }, [])
   return (
-    <div className="flex h-screen">
-      <section id="SideBar" className="fixed h-full">
+    <div className={`flex`}>
+      <div>
         <SideBar />
-      </section>
-      <section className="flex-grow">
-        <div className="fixed w-full">
+      </div>
+      <div className="ms-[221px] flex-grow">
           <NavBar />
-        </div>
-        <div className="p-[90px;] h-full">
-          <div className="flex justify-between">
-            <h1 className="p-0 text-3xl font-semibold text-gray-500">
-              Mentorship
-            </h1>
-            <div>
-              <button
-                className="text-gray-500 text-sm font-semibold mt-1 p-1 px-3 rounded-xl shadow-md"
-                style={{ backgroundColor: "#afdade" }}
-                onClick={handleShow}
-              >
-                Schedule
-              </button>
-            </div>
-          </div>
-          {/**Panel */}
-          <div
-            className={`grid grid-cols-4 gap-4 mt-5 content ${
-              show ? "visible" : ""
-            }`}
-          >
-            <div
-              className="shadow-sm rounded-lg flex justify-between text-gray-500 font-semibold pt-3 pb-3"
-              style={{ backgroundColor: "#97bfcc" }}
-            >
-              <div className="p-1 ps-5 text-md text-black">Scheduled Sessions</div>
-              <div className="px-[20px] text-4xl text-black">45</div>
-            </div>
-            <div
-              className="shadow-sm rounded-lg flex justify-between ps-2 text-gray-500 font-semibold pt-3 pb-3"
-              style={{ backgroundColor: "#afd5de" }}
-            >
-              <div className="p-1 ps-5 text-md text-black">
-                Team Participated
-              </div>
-              <div className="px-[20px] text-4xl text-black">45</div>
-            </div>
-            <div
-              className="shadow-sm rounded-lg flex justify-between items-start ps-2 text-gray-500 font-semibold pt-3 pb-3"
-              style={{ backgroundColor: "#afdade" }}
-            >
-              <div className="p-1 ps-5 text-md text-black">
-                Total Pratham Hours
-              </div>
-              <div className="px-[20px] text-4xl text-black">45</div>
-            </div>
-            <div
-              className="shadow-sm rounded-lg flex justify-between items-start ps-2 text-gray-500 font-semibold pt-3 pb-3"
-              style={{ backgroundColor: "#afdade" }}
-            >
-              <div className="p-1 ps-5 text-md text-black">
-                Total Akshar Hours
-              </div>
-              <div className="px-[20px] text-4xl text-black">45</div>
-            </div>
-          </div>
+          <div className="bg-gray-100">
+                <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}>
+                      <div className="bg-white rounded-lg shadow-sm">
+                          <div className="flex gap-2 text-sm p-3 text-[#808080]">
+                                <div>Dashboard</div>
+                                <div>{'>'}</div>
+                                <div>Mentorship</div>
+                          </div>
+                          <div className="mt-1 text-xl px-3">Mentorship</div>
+                          <div className="grid grid-cols-2 gap-4 px-3 py-3">
+                                  <div><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/></div>
+                                  <div className="flex gap-5 justify-end">
+                                      <button className="border border-[#45C74D] rounded-lg p-2 text-sm">Request Mentor</button>
+                                      <button className="border bg-[#45C74D] rounded-lg p-2 text-sm text-white">Request Mentor</button>
+                                  </div>
+                          </div>
+                          <div className="grid grid-cols-3 gap-10 px-3 mt-4 pb-4">
+                                  <div className="border rounded-md shadow-md">
+                                      <div className="flex justify-between p-3">
+                                            <div className="bg-[#D8F3D9] text-[#45C74D] text-xs px-2 rounded-lg">Completed</div>
+                                            <div className=""><FaEllipsis /></div>
+                                      </div>
+                                      <div className="flex justify-between text-sm px-3 mt-3">
+                                            <div>
+                                              <img src="../../assets/images/Frame (4).svg" />
+                                            </div>
+                                            <div className="text-[#45C74D] font-semibold">HH:MM:SS</div>
+                                      </div>
+                                      <div className="flex justify-between border border-b-1 border-t-0 border-l-0 border-r-0 mt-5 mb-3 px-3 pb-2">
+                                                  <div>
+                                                      <div className="text-lg font-semibold">Mentor Name</div>
+                                                      <div className="text-[#808080]">Start-up name</div>
+                                                  </div>
+                                                  <div>
+                                                      <div className="text-xs">MM/DD/YYY</div>
+                                                      <div className="text-xs">HH:MM</div>
+                                                  </div>
+                                      </div>
+                                      <div className="pb-2"> 
+                                          <div className="text-[#808080] px-3">Feedback</div>
+                                          <div class="flex items-center px-[6px]">
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>  
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>     
+                                          </div>
+                                      </div>
+                                  </div>
 
-          <div
-            className={`grid grid-cols-2 mt-5 gap-4 flex justify-center items-center content ${
-              show ? "visible" : ""
-            }`}
-          >
-            <div className="shadow-md font-semibold rounded-lg w-full md:h-[340px;] border">
-              <div className="p-2 pt-1 text-sm text-gray-600 font-semibold">
-                Pratham mentorship hours
-              </div>
-              <div className="flex justify-center items-center mb-1">
-                <div className="w-50 h-50 overflow-hidden">
-                  <DonutChart />
-                </div>
-              </div>
-            </div>
+                                  <div className="border rounded-md shadow-md">
+                                      <div className="flex justify-between p-3">
+                                            <div className="bg-[#D8F3D9] text-[#45C74D] text-xs px-2 rounded-lg">Completed</div>
+                                            <div className=""><FaEllipsis /></div>
+                                      </div>
+                                      <div className="flex justify-between text-sm px-3 mt-3">
+                                            <div>
+                                              <img src="../../assets/images/Frame (4).svg" />
+                                            </div>
+                                            <div className="text-[#45C74D] font-semibold">HH:MM:SS</div>
+                                      </div>
+                                      <div className="flex justify-between border border-b-1 border-t-0 border-l-0 border-r-0 mt-5 mb-3 px-3 pb-2">
+                                                  <div>
+                                                      <div className="text-lg font-semibold">Mentor Name</div>
+                                                      <div className="text-[#808080]">Start-up name</div>
+                                                  </div>
+                                                  <div>
+                                                      <div className="text-xs">MM/DD/YYY</div>
+                                                      <div className="text-xs">HH:MM</div>
+                                                  </div>
+                                      </div>
+                                      <div className="pb-2"> 
+                                          <div className="text-[#808080] px-3">Feedback</div>
+                                          <div class="flex items-center px-[6px]">
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>  
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>     
+                                          </div>
+                                      </div>
+                                  </div>
 
-            <div className="shadow-md font-semibold rounded-lg w-full md:h-[340px;] border">
-              <div className="p-2 pt-1 text-sm text-gray-600 font-semibold">
-                Akshar Mentorship hours
-              </div>
-              <div className="flex justify-center items-center mb-1">
-                <div className="w-50 h-50 overflow-hidden">
-                  <DonutChart />
+                                  <div className="border rounded-md shadow-md">
+                                      <div className="flex justify-between p-3">
+                                            <div className="bg-[#D8F3D9] text-[#45C74D] text-xs px-2 rounded-lg">Completed</div>
+                                            <div className=""><FaEllipsis /></div>
+                                      </div>
+                                      <div className="flex justify-between text-sm px-3 mt-3">
+                                            <div>
+                                              <img src="../../assets/images/Frame (4).svg" />
+                                            </div>
+                                            <div className="text-[#45C74D] font-semibold">HH:MM:SS</div>
+                                      </div>
+                                      <div className="flex justify-between border border-b-1 border-t-0 border-l-0 border-r-0 mt-5 mb-3 px-3 pb-2">
+                                                  <div>
+                                                      <div className="text-lg font-semibold">Mentor Name</div>
+                                                      <div className="text-[#808080]">Start-up name</div>
+                                                  </div>
+                                                  <div>
+                                                      <div className="text-xs">MM/DD/YYY</div>
+                                                      <div className="text-xs">HH:MM</div>
+                                                  </div>
+                                      </div>
+                                      <div className="pb-2"> 
+                                          <div className="text-[#808080] px-3">Feedback</div>
+                                          <div class="flex items-center px-[6px]">
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>  
+                                                <button>
+                                                    <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                                                    </svg>
+                                                </button>     
+                                          </div>
+                                      </div>
+                                  </div>
+                                 
+                          </div>
+                      </div>
                 </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
+      </div>
       <Schedule isVisible={openPopUp} onClose={() => setOpenpopup(false)}>
         <form onSubmit={ScheduleButton}>
           <div className="font-semibold">Schedule Session</div>
@@ -197,7 +295,7 @@ const ScheduleButton = async(e) => {
                     <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-5 scale-75 top-3 z-10 bg-white px-2 peer-focus:px-2 peer-focus:text-blue-500">Select Startup</label>
                   </div>
                   <div className="relative mt-5">
-                    <select id="options" 
+                    <select id="options"
                         onChange={handleChange} 
                         className="peer border border-gray-300 h-[45px] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                         name="select_mentor">

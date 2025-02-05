@@ -24,6 +24,7 @@ function AddNewMentor() {
         'Professional',
         'Contact',
     ];
+    console.log(steps.length);
     const icons = [
         <FaMessage size={20} />,
         <FaInfo size={20} />,
@@ -33,6 +34,14 @@ function AddNewMentor() {
     const nextPrev = (n) => {
         setCurrentStep((prevStep) => prevStep + n);
     };
+
+    const nxtstep = () => {
+        setCurrentStep(() => {
+            if(steps.length <= 3){
+                return currentStep + 1;
+            }
+        })
+    }
 
     const [formData, setFormData] = useState({
         description: {
@@ -154,7 +163,7 @@ function AddNewMentor() {
                                                             <textarea className="w-[100%] block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D] mt-1 resize-none "/>
                                         </div>
                                         <div className="flex justify-center item-center mt-7">
-                                            <button className="bg-[#45C74D] p-2 text-white rounded-lg">Next</button>
+                                            <button className="bg-[#45C74D] p-2 text-white rounded-lg" onClick={nxtstep}>Next</button>
                                         </div>
                                     </div>
                             </div>
