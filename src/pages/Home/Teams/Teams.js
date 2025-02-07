@@ -30,6 +30,26 @@ function Teams(props){
         setShow(true);
     }, [])
 
+    const [timewithsec, settimewithsec] = useState('');
+    const timefunc = () => {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
+        settimewithsec(formattedTime);
+    }
+    useEffect(() => {
+          setTimeout(() => {
+            timefunc();
+          }, 0)
+          setInterval(() => {
+            timefunc()
+          }, 1000)
+    }, [])
     return (
         <div className={`grid md:grid-cols-3 gap-4 grid-cols-1 content ${show ? "visible": ""}`}>
             {/* <div className="col-span-3 gap-3">
@@ -88,6 +108,7 @@ function Teams(props){
                 <div className="bg-[#45C74D] mx-4 my-4 rounded-lg">
                         <div className="px-5 pt-5 font-semibold text-2xl text-white">{time}</div>   
                         <div className="px-5 pb-3 text-white">Have a nice day</div>  
+                        <div className='text-sm mt-3 px-5 text-white pb-3'>{timewithsec}</div>
                 </div>
                 <div className="px-5 pt-2">Overview</div>
                     <div className="grid grid-cols-4 gap-10 px-7 py-2">

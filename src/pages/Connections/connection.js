@@ -129,21 +129,19 @@ function Connection(){
                 }
         }
     // console.log(data);
-    const [show, setShow] = useState(false);
+    const [showw, setShow] = useState(false);
     useEffect(() => {
         setShow(true);
         ViewConnection();
     }, [])
     return (
-        <div className="flex h-screen">
-            <section className="">
+        <div className="flex">
+            <div className="">
                     <SideBar />
-            </section>
-            <section className="flex-grow">
-                    <div className="fixed w-full">
-                            <NavBar />
-                    </div>
-                    <div className={`p-[90px;] h-full`}>
+            </div>
+            <div className="ms-[221px] flex-grow">
+                    <NavBar />
+                    {/* <div className={`p-[90px;] h-full`}>
                             <h1 className="text-3xl font-semibold text-gray-500">Connections</h1>
                             <div className={`grid grid-cols-3 mt-7 gap-10 content ${show ? "visible": ""}` }>
                                 <div className="shadow-md font-semibold rounded-lg w-[100%;]" style={{backgroundColor: '#afdade'}}> 
@@ -158,7 +156,6 @@ function Connection(){
                                                             <div className="pt-1"><button className="text-gray-500" onClick={() => deleteConnection(email_address)}><FaTrashCan size={14}/></button></div>
                                                             <div className="pt-1"><button className="text-gray-500" onClick={handleEstablish}><FaTag size={14}/></button></div>
                                                             <div className="pt-1"><button className="text-gray-500"><FaPencil size={14}/></button></div>
-                                                            {/* <div className="pt-1"><div className={`absolute inline-flex items-center justify-center w-[12px] h-[12px] text-xs font-bold text-white bg-red-500 border-0 border-white rounded-full top-[171px] end-[105px;] dark:border-gray-900 animate-pulse`}><span className="text-xs"></span></div></div> */}
                                                         </div>
                                                         <div className="grid grid-cols-2 md:p-6 mb-1">
                                                                 <div className="flex justify-start items-start scale-[1.08] text-md"><span className="" style={{color: '#0b5f66'}}>{dataObj.connect_for}</span></div>
@@ -167,8 +164,48 @@ function Connection(){
                                                 </div>;
                                 })} 
                             </div>
+                    </div> */}
+                    <div className="bg-gray-100">
+                        <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}>
+                                     <div className="bg-white rounded-lg shadow-sm p-3">
+                                        <div className="text-sm text-[#808080]">Dashboard {'>'} Connections</div>
+                                        <div className="pt-3 font-semibold text-lg">All Connections</div>
+                                        <div className="grid grid-cols-2 mt-3">
+                                                <div><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Search.." /></div>
+                                                <div className="flex gap-5 justify-end">
+                                                                        <button className="border border-[#45C74D] rounded-lg p-2 text-sm">Contacts</button>
+                                                                        <button className="border bg-[#45C74D] rounded-lg p-2 text-sm text-white">Establish Connections</button>
+                                                </div>
+                                                
+                                        </div>
+                                        <div className="mt-3">
+                                                        <div className="mt-10">
+                                                            <table className="table-auto w-full">
+                                                                    <thead className="text-sm">
+                                                                        <tr>
+                                                                            <th>Start-up/ Mentor</th>
+                                                                            <th>Contact</th>
+                                                                            <th>Organisation</th>
+                                                                            <th>Purpose</th>
+                                                                            <th>Contact</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td className="flex justify-center">Hello</td>
+                                                                            <td className="">Hello</td>
+                                                                            <td>Hello</td>
+                                                                            <td>Hello</td>
+                                                                            <td>Hello</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                            </table>
+                                                        </div>
+                                        </div>
+                                     </div>
+                        </div>
                     </div>
-            </section>
+            </div>
             <AddConnections isVisible={openPopUp} onClose={()=>setOpenpopup(false)}>
                     <h1 className="text-xl p-3 pb-3 text-gray-500">Register for new connection</h1>
                     <form onSubmit={handleClick}>
