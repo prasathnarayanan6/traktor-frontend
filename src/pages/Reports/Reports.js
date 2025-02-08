@@ -48,7 +48,7 @@ function Reports() {
                                                 <div>Filter by</div>
                                         </div>
                                         <div className="grid grid-cols-2 gap-3">
-                                                <div className="border p-2">
+                                                <div className="p-2">
                                                     <div className='font-semibold text-sm'>Status</div>
                                                     <div className="flex justify-between mt-5">
                                                             <div className="gap-3 flex">
@@ -56,7 +56,7 @@ function Reports() {
                                                                     <label>Active</label>
                                                             </div>
                                                             <div className="gap-3 flex">
-                                                                    <input type="radio" className="mt-1"/>
+                                                                    <input type="radio" className="mt-1 focus:ring-[#45C74D] focus:border-[#45C74D] focus:bg-[#45C74D]"/>
                                                                     <label>Graduated</label>
                                                             </div>
                                                             <div className="gap-3 flex">
@@ -73,10 +73,22 @@ function Reports() {
                                                             <div className="mt-2"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" /></div>
                                                     </div>
                                                 </div>
-                                                <div className="border p-2">
+                                                <div className="p-2">
                                                     <div className="font-semibold text-sm ">Program</div>
                                                     <div className="mt-2"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" /></div>
+                                                    <div className="mt-7">
+                                                        <div>Cohort</div>
+                                                        <div className="mt-2"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" /></div>
+                                                    </div>
+                                                    <div className="mt-7">
+                                                        <div>Mentors Associated</div>
+                                                        <div className="mt-2"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" /></div>
+                                                    </div>
                                                 </div>
+                                        </div>
+                                        <div className="grid grid-cols-2 mt-5">
+                                                <div className="underline text-sm text-[#45C74D]">Clear Filter</div>
+                                                <div><button className="px-2 bg-[#45C74D] rounded-lg text-white py-1 flex justify-center item-center text-sm">Next</button></div>
                                         </div>
                            </div>   
                 </div>  

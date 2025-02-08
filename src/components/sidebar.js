@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { FaBars, FaBook, FaBookOpen, FaCalendar, FaCalendarCheck, FaChalkboard, FaChalkboardTeacher, FaChartPie, FaCubes, FaDashcube, FaFile, FaFilePdf, FaFileUpload, FaGraduationCap, FaHome, FaPencilAlt, FaPeopleArrows, FaRegCalendarCheck, FaRegFile, FaRocket} from 'react-icons/fa';
 import { FaPeopleGroup, FaPersonChalkboard } from 'react-icons/fa6';
 import nirmaanlogo from '../assets/images/nirmaan-iitm.14fdf833.svg';
+import startupslogo from '../assets/images/Dashboard.svg';
 function SideBar({children}) {
     // const [userRole, setUserRole] = useState('customer');  
     // const currentPath = window.location.pathname;
