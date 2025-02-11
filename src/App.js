@@ -56,6 +56,8 @@ import Pdf from './pages/Reports/Pdf.js';
 import { PDFViewer } from '@react-pdf/renderer';
 import Bills from './Finance/Pages/Startup/Bills.js';
 import OfficeHome from './Office/Pages/OfficeHome.js';
+import Mentor from './pages/Mentors/Mentor';
+import MentorProfile from './pages/Mentors/MentorProfile.js';
 function App() {
   const [LoggedIn, setLoggedIn] = useState(false);
   const authenticate = async() => {
@@ -125,6 +127,7 @@ function App() {
                   <Route path="/uploads" element={<UploadFile />} />
                   <Route path="/view/uploads" element={<ViewComponents/> }/>
                   <Route path="/cms" element={<Cms />} />
+                  <Route path="/mentor/mentor_profile" element={<MentorProfile />} />
                   <Route path = '/pdf' element ={<PDFViewer className="w-full h-screen"><Pdf /></PDFViewer>} />
                   <Route path="/startup/:id" element={<IndividualStartups />}/>
                    {/* <Route path="/home?tab=startups" element={<HomeStartups />} /> */}
