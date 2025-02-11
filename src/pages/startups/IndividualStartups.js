@@ -11,6 +11,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 import { FaPencil } from 'react-icons/fa6';
 import {arrowUpCircle} from 'react-icons-kit/feather/arrowUpCircle';
 import money from '../../assets/images/money.png'
+import editsvg from '../../assets/images/Frame (13).svg';
 function IndividualStartups() {
  const {id} = useParams();
  const [data, getData] = useState(null);
@@ -48,154 +49,114 @@ catch(err)
     const startupName = data?.generalData?.basic?.startup_name || "Not Available";
 //  }, [])
   return (
-    <div className="h-screen flex">
-                   <section id="SideBar" className="fixed h-full">
+    <div className="flex">
+                   <div>
                         <SideBar />
-                    </section>
-                    <section className="flex-grow">
-                        <div className="fixed w-full">
+                    </div>
+                    <div className="ms-[221px] flex-grow">
+                        <div className="">
                             <NavBar />
                         </div>
-                        <div className="p-[90px;] h-full">
-                                    <div className="text-gray-400">Dashboard / Startups / Profile</div>
-                                    <div className="p-0 text-2xl font-semibold text-gray-500 flex mt-5"><span className="mt-2"><FaArrowCircleLeft size={18} /></span><span className="ps-2">Startup Profile</span></div>
-                            {/* {id} */}
-
-                            <div className="mt-4">
-                                    <div className="border border-md">
-                                            <section id="personal-data">
-                                                    <div className="grid grid-cols-2 gap-10 my-5">
-                                                            <div className="left-side">
-                                                                        <div className='flex justify-center items-center text-2xl'>{data?.generalData[0]?.basic?.startup_name || <span className="text-red-600 animate transition-all 0.5s"><IoIosCloseCircleOutline />NA</span>}</div>
-                                                                        <span className="flex justify-center items-center mt-4"><button className="bg-green-100 text-green-800 text-xs font-medium rounded dark:bg-green-900 dark:text-green-300 p-1">{data[0]?.startup_status}</button></span>
-                                                            </div>
-                                                            <div className="right-side">
-                                                                        <div className="flex justify-center items-center">
-                                                                                <span className="pt-1 text-gray-500"><FaEnvelope size={17}/></span>
-                                                                                <span className="ps-2">{data?.generalData[0]?.official?.official_email_address || <span className="text-red-600"><IoIosCloseCircleOutline />NA</span>}</span>
-                                                                         </div>
-
-                                                                         <div className="flex justify-center items-center mt-4">
-                                                                                <span className="pt-1 text-gray-500"><FaPhone size={17}/></span>
-                                                                                <span className="ps-2 ">{data?.generalData[0]?.official?.official_contact_number || <span className="text-red-600"><IoIosCloseCircleOutline />NA</span>}</span>
-                                                                         </div>
-                                                            </div>
-                                                    </div>
-                                            </section> 
-                                            <section className="mentor-data mt-10 my-4">
-                                                    <div className="grid grid-cols-4 gap-10 mx-10">
-                                                            <div className="grid grid-cols-1">
-                                                                <span className='text-sm'>Mentors</span>
-                                                                <span className="font-semibold text-sm">Not associated</span>
-                                                            </div>
-                                                            <div className="grid grid-cols-1">
-                                                                <span className='text-sm'>Sector</span>
-                                                                <span className="font-semibold text-sm">{data?.generalData[0]?.basic?.startup_program || <span className="text-red-600"><IoIosCloseCircleOutline />NA</span>}</span>
-                                                            </div>
-                                                            <div className="grid grid-cols-1">
-                                                                <span className='text-sm'>Mentors</span>
-                                                                <span className="font-semibold text-sm">Nirmaan</span>
-                                                            </div>
-                                                            <div className="grid grid-cols-1">
-                                                                <span className='text-sm'>Program</span>
-                                                                <span className="font-semibold text-sm">{data?.generalData[0]?.basic?.program || <span className="text-red-600"><IoIosCloseCircleOutline />NA</span>}</span>
-                                                            </div>
-                                                    </div>
-                                            </section>     
-                                    </div>
-
-                                    <div className="border mt-2">
-                                            <div className="flex justify-between m-3">
-                                                    <div className="text-xl font-semibold">About the startup</div>
-                                                    <div className="text-green-600"><FaPencil size={20}/></div>
+                        <div className="bg-gray-100">
+                                <div className="p-3">
+                                        <div className="text-sm text-[#808080]">Dashboard {'>'} Start-ups {'>'} Profile</div>
+                                        <div className="flex mt-4">
+                                                <div></div>
+                                                <div className="font-semibold text-lg">Start-up profile</div>
+                                        </div>
+                                        <div className="grid grid-cols-4 mt-3 gap-3">
+                                            <div className="col-span-1">
+                                                 <div className="bg-white rounded-md">
+                                                            ushd
+                                                 </div>
                                             </div>
-                                            <div className="m-3">
-                                                    {data?.generalData[0]?.description?.startup_description}
-                                            </div>
-                                    </div>
-
-                                    <div className="border mt-2">
-                                            <div className="flex justify-between m-3">
-                                                    <div className="text-xl font-semibold">Founders</div>
-                                                    <div className="text-green-600"><FaPencil size={20}/></div>
-                                            </div>
-                                            <div className="flex justify-between m-3">
-                                                    <div className="flex justify-between gap-20">
-                                                        <div className="font-semibold text-green-600 text-lg">{data?.generalData[0]?.founder?.founder_name}</div>
-                                                        <div className="text-green-600"><button onClick={handleToggle}><Icon icon={arrowChange} size={18} /></button></div>
-                                                    </div>
-                                            </div>
-                                    </div>
-
-                                    <div className="border mt-2">
-                                            <div className="flex justify-between m-3">
-                                                    <div className="text-xl font-semibold">Team Members</div>
-                                                    <div className="text-green-600"><FaPencil size={20}/></div>
-                                            </div>
-                                            <div className="flex justify-between m-3">
-                                                    <div className="flex justify-between gap-20">
-                                                        <div className="font-semibold text-green-600 text-lg">{data?.generalData[0]?.founder?.founder_name}</div>
-                                                        <div className="text-green-600"><button onClick={handleToggle}><Icon icon={arrowChange} size={18} /></button></div>
-                                                    </div>
-                                            </div>
-                                    </div>
-                                    <div className="border mt-2 mb-3">
-                                                <div className="grid grid-cols-4 gap-5 m-3">
-                                                        <div className="border">
-                                                            <div className="flex justify-between p-3">
-                                                                <div className="text-green-500"><FaMoneyCheck size={36}/></div>
-                                                                <div>
-                                                                    <span className="font-semibold flex justify-end">{data?.generalData[0]?.amount || <span>Funding not associated</span>}</span>
-                                                                    <div className="text-sm flex justify-end pt-[2px]">Funding Disbursed</div>
-                                                                </div>
+                                            <div className="col-span-3">
+                                                <div className="bg-white rounded-md border p-3 px-4">
+                                                            <div className="font-semibold text-lg flex justify-between">
+                                                                <div>About Us</div>
+                                                                <div><button><img src={editsvg} /></button></div>
                                                             </div>
-                                                        </div>
-                                                        <div className="border">
-                                                            <div className="flex justify-between p-3">
-                                                                <div className="text-green-500"><FaMoneyCheck size={36}/></div>
-                                                                <div>
-                                                                    <span className="font-semibold flex justify-end">{data?.FundingDistributes[0]?.sum || <span>Nothing to show here</span>}</span>
-                                                                    <div className="text-sm flex justify-end pt-[2px]">Funding Utilized</div>
-                                                                </div>
+                                                            <div className="pt-2 text-sm">Our Seat oF Joy manufacturers a child safety seat for Motorcycles that protects a child during accidents. Our Seat along with protecting the child, also slidable foldable and convertible into a storage box.</div>
+                                                            <div className="flex justify-between pt-5">
+                                                                    <div>
+                                                                                <div className="font-semibold">Start-up Type</div>
+                                                                                <div className="text-sm">Hardware</div>
+                                                                    </div>
+                                                                    <div>
+                                                                                <div className="font-semibold">Sector</div>
+                                                                                <div className="text-sm">Automotive</div>
+                                                                    </div>
+                                                                    <div>
+                                                                                <div className="font-semibold">Program</div>
+                                                                                <div className="text-sm">Nirmaan</div>
+                                                                    </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="border">
-                                                            <div className="flex justify-between p-3">
-                                                                <div className="text-green-500"><FaMoneyCheck size={36}/></div>
-                                                                <div>
-                                                                    <span className="font-semibold flex justify-end">{data?.FundingDistributes[0]?.sum || <span>Nothing to show here</span>}</span>
-                                                                    <div className="text-sm flex justify-end pt-[2px]">Balance</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="border">
-                                                            <div className="flex justify-between p-3">
-                                                                <div className="text-green-500"><FaMoneyCheck size={36}/></div>
-                                                                <div>
-                                                                    <span className="font-semibold flex justify-end">Rs.10,00,000</span>
-                                                                    <div className="text-sm flex justify-end pt-[2px]">External Funding</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                    </div>
-                                    <div className="border">
-                                        <div className="grid grid-cols-2 gap-5 ms-2">
-                                             <div className="text-lg font-semibold flex justify-between">
-                                                <div>Documents</div>
-                                                <div className="mt-2"><FaPencil size={15}/></div>
-                                              </div>
-                                             <div className="text-lg font-semibold">
-                                                <div className="flex justify-between">
-                                                        <div className="">Awards & Recognitions</div>
-                                                        <div className="mt-2"><FaPencil size={15}/></div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                            </div><br></br>
+
+                                        <div className="bg-white rounded-md mt-1 p-3">
+                                              <div className="grid grid-cols-3">
+                                                        <div className="">
+                                                           <div className="font-semibold flex justify-center text-sm"> Mentor</div>
+                                                           <div className="flex justify-center text-sm">Not Associated</div>
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-semibold flex justify-center text-sm">Role of Faculty</div>
+                                                            <div className="flex justify-center text-sm">Name</div>
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-semibold flex justify-center text-sm">Cohort(Name  & Year)</div>
+                                                            <div className="flex justify-center text-sm">2023</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">CIN/ Registration Number</div>
+                                                            <div className="flex justify-center text-sm">-</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">Industry</div>
+                                                            <div className="flex justify-center text-sm">Automobiles & Self-Driving Assistances</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">Technology</div>
+                                                            <div className="flex justify-center text-sm">-</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">Year of Graduation</div>
+                                                            <div className="flex justify-center text-sm">-</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">Graduated To </div>
+                                                            <div className="flex justify-center text-sm">-</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">DPIIT Number</div>
+                                                            <div className="flex justify-center text-sm">-</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">Current Funding State</div>
+                                                            <div className="flex justify-center text-sm">-</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">Officially Registered as</div>
+                                                            <div className="flex justify-center text-sm">-</div>
+                                                        </div>
+                                                        <div className="mt-10">
+                                                            <div className="font-semibold flex justify-center text-sm">PIA</div>
+                                                            <div className="flex justify-center text-sm">-</div>
+                                                        </div>
+                                              </div>
+                                        </div>
+
+                                        <div className="bg-white mt-3 rounded-md">
+                                                <div className="flex gap-6 text-sm p-3">
+                                                        <div className="">Founder</div>
+                                                        <div>Team Members</div>
+                                                </div>
+                                        </div>
+                                </div>
                         </div>
-                    </section>
+                    </div>
     </div>
   )
 } 

@@ -38,21 +38,20 @@ function AddStartup() {
       }
   }
    return (
-    <div className="h-screen flex">
-          <section className="fixed h-full">
+    <div className="flex">
+          <div>
                 <SideBar />
-          </section>
-          <section className="flex-grow">
-                        <div className="fixed top-0 left-0 w-full z-50">
+          </div>
+          <div className="ms-[221px] flex-grow">
+                        <div>
                             <NavBar />
                         </div>
-                        <div className="p-[90px;] h-full">
-                           <h1 className="text-xl font-semibold text-gray-500 mt-5">Add New Startup</h1>
-                            <div className="">
-                                <AddStartupMultiForm />
-                            </div>
+                        <div className="bg-gray-100">
+                              <div className="">
+                                hfg
+                              </div>
                         </div>
-          </section>
+          </div>
     </div>
   )
 }

@@ -141,7 +141,7 @@ function Startups() {
                                                     <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
                                                 </div>
                                                 <div className="flex justify-between gap-4">
-                                                        <button className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold">Add New Start-ups</button>
+                                                        <a className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold" href="/addstartup">Add New Start-ups</a>
                                                         <button><img src={ExportSvg} /></button>
                                                         <button><img src={FrameSvg} /></button>
                                                 </div>

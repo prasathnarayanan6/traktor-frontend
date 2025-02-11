@@ -27,7 +27,7 @@ function MentorProfile() {
                         <div className="px-5 py-4">
                             <div className="bg-white rounded-2xl shadow-lg border">
                                     <div className="relative flex">
-                                        <img src={bgsvg} className="w-screen"/>
+                                        <img src={bgsvg} className=""/>
                                         <div><button><img src={editsvg} className="absolute top-5 left-[1040px]"/></button></div>
                                     </div>
                                     <div className="shadow-sm px-5 py-2">
