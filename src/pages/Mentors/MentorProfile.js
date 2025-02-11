@@ -8,6 +8,8 @@ import whatsappsvg from '../../assets/images/Frame (8).svg';
 import dummysvg from '../../assets/images/image (1).svg';
 import linkedinsvg from '../../assets/images/Frame (9).svg';
 import bgsvg from '../../assets/images/Rectangle 5.svg';
+import mentorsvg from '../../assets/images/Frame (11).svg';
+import editsvg from '../../assets/images/Frame (12).svg';
 function MentorProfile() {
   return (
     <div className="flex">
@@ -19,12 +21,15 @@ function MentorProfile() {
                 <div className="bg-gray-100">
                         <div className="p-5 text-sm text-[#808080]">Dashboard {'>'} Mentors {'>'} Profile</div>
                         <div className="flex gap-5 px-5">
-                            <div className='pt-1'><FaArrowAltCircleLeft size={20}/></div>
-                            <div className="text-lg font-semibold">Mentor Profile</div>
+                            <div className='pt-1'><img src={mentorsvg}/></div>
+                            <div className="text-lg font-semibold pt-1">Mentor Profile</div>
                         </div>
                         <div className="px-5 py-4">
                             <div className="bg-white rounded-2xl shadow-lg border">
-                                    <div className=""><img src={bgsvg} /></div>
+                                    <div className="relative flex">
+                                        <img src={bgsvg} className="w-screen"/>
+                                        <div><button><img src={editsvg} className="absolute top-5 left-[1040px]"/></button></div>
+                                    </div>
                                     <div className="shadow-sm px-5 py-2">
                                             <div className="grid grid-cols-4 py-2 shadow-md rounded-lg">
                                                 <div className='col-span-1'><img src={bgsvg} /></div>
