@@ -343,7 +343,6 @@ function NavBar({onSelectionChange, selectedIndex}) {
                                     <button className="text-white bg-green-400 rounded-sm font-bold active p-1 active:scale-[.98] active:duration-75 hover:scale-[1.02] ease-in-out transition-all">Update</button>
                       </div>
           </ProfileModal>
-
           <ActionsModel isVisible={actionpopup} onClose={()=>handleActionClose(false)}>
                   <div className="flex justfiy-between px-2 gap-4 mt-5 border p-3">
                         <div className=""><img src={Startupsvg} className="w-[100px] bg-[#D8F3D9] p-3 rounded-lg"/></div>
@@ -381,7 +380,6 @@ function NavBar({onSelectionChange, selectedIndex}) {
                         </div>
                   </div>
           </ActionsModel>
-
           <More isVisible={morepopup} onClose={()=>handleMoreClose(false)}>
                 <div className="p-2">
                     <div className="text-lg">Products</div>
@@ -413,7 +411,6 @@ function NavBar({onSelectionChange, selectedIndex}) {
                     </div>
                 </div>
           </More>
-          
     </div>
   )
 }

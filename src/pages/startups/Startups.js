@@ -129,7 +129,7 @@ function Startups() {
                         <div className="bg-gray-100">
                                 <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}> 
                                     <div className="border bg-white">
-                                            <div className="px-5 pt-6 text-md text-[#808080]">Dashboard<span>{' > '}</span>Start-ups</div>
+                                            <div className="px-5 pt-6 text-sm text-[#808080]">Dashboard<span>{' > '}</span>Start-ups</div>
                                             <div className="font-bold text-lg px-5 pt-3">Start-ups</div>
                                             <div className="flex justify-between px-5 mt-3">
                                                 <div className="relative">
@@ -179,7 +179,6 @@ function Startups() {
                                                                         </div>
                                                                     </div>
                                                             </div>
-
                                                             <div className="border shadow-md rounded-lg px-1">
                                                                     <div className="flex justify-end gap-3 my-2">
                                                                             <div className="px-1 bg-[#D8F3D9] rounded-xl text-sm text-[#45C74D]">Active</div>

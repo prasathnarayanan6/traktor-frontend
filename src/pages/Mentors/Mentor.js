@@ -82,7 +82,7 @@ function Mentor() {
             <div className="bg-gray-100">
                   <div className={`mx-10 py-5  content ${showw ? "visible": ""}`}> 
                        <div className="border bg-white">
-                            <div className="px-5 pt-6 text-md text-[#808080]">Dashboard<span>{'>'}</span>Mentors</div>
+                            <div className="px-5 pt-6 text-sm text-[#808080]">Dashboard<span> {'>'} </span>Mentors</div>
                             <div className="font-bold text-lg px-5 pt-3">Mentors</div>
                             <div className="flex justify-between px-5 mt-3">
                                   <div className="relative">
@@ -91,7 +91,7 @@ function Mentor() {
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                       </svg>
                                     </div>
-                                    <input type="text"  className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
+                                    <input type="text"  className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ps-10" placeholder="Search..." />
                                   </div>
                                   <a href="/mentor/new" className="bg-[#45C74D] text-white block py-2 px-2 rounded-lg ms-3 text-sm font-semibold">Add New Mentor</a>
                             </div>
