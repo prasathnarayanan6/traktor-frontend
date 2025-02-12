@@ -23,6 +23,10 @@ import { useLocation } from 'react-router-dom';
 import Bellsvg from '../assets/images/Component 14.svg';
 import Usersvg from '../assets/images/User profile.svg';
 import moresvg from '../assets/images/more.svg';
+import More from './More';
+import startupsvg from '../assets/images/Startups.svg';
+import Notessvg from '../assets/images/Mentor (1).svg';
+import Mentorship from '../assets/images/Mentorships (1).svg';
 function NavBar({onSelectionChange, selectedIndex}) {
   const [openNav, setOpenNav] = useState(false);
   // const openSideBar = () => {
@@ -195,7 +199,9 @@ function NavBar({onSelectionChange, selectedIndex}) {
   const tab = queryParams.get('tab');
   const pathName = window.location.pathname;
   
-  const [more, setMore] = useState(0);
+  const [morepopup, setMorepop] = useState(false);
+  const handleMoreShow = () => setMorepop(true);
+  const handleMoreClose = () => setMorepop(false);
   return (
     <div className="navbar dm-sans">
       <nav class="bg-white shadow-sm">
@@ -223,7 +229,7 @@ function NavBar({onSelectionChange, selectedIndex}) {
                       <div className="text-black px-2 py-2 ms-3"><button><img src={Bellsvg} /></button></div>
                   </div>
                   <div className="relative md:block">
-                      <div className="text-black px-2 py-2 ms-3"><button><img src={moresvg} /></button></div>
+                      <div className="text-black px-2 py-2 ms-3"><button onClick={handleMoreShow}><img src={moresvg} /></button></div>
                   </div>
                   <div className="relative md:block">
                       <div className="text-black px-2 py-2 ms-3"><button><img src={Usersvg} /></button></div>
@@ -250,9 +256,6 @@ function NavBar({onSelectionChange, selectedIndex}) {
                                                   <button
                                                   key={index}
                                                   className="block py-2 px-3 text-black md:p-0 text-[#45C74D] hover:underline hover:underline-offset-[22px] hover:decoration-4 hover:decoration-[#45C74D]"
-                                                  // style={{ backgroundColor: selectedIndex === index ? darkColor : colors,
-                                                  //     color: selectedIndex === index ? 'white' : 'initial'
-                                                  //  }}
                                                   onClick={() => {onSelectionChange(index);}}
                                                   >
                                                   {['Overview', 'Start-ups', 'Mentor', 'Funding'][index]}
@@ -378,6 +381,39 @@ function NavBar({onSelectionChange, selectedIndex}) {
                         </div>
                   </div>
           </ActionsModel>
+
+          <More isVisible={morepopup} onClose={()=>handleMoreClose(false)}>
+                <div className="p-2">
+                    <div className="text-lg">Products</div>
+                    <div className="flex justify-between px-10 mt-5">
+                            <div className="bg-[#D8F3D9] p-3 rounded-lg min-w-[100px]">
+                                <div className="flex justify-center items-center"><img src={startupsvg} /></div>
+                                <div className="flex justify-center items-center mt-3">Website</div>
+                            </div>
+                            <div className="bg-[#D8F3D9] p-3 rounded-lg min-w-[100px]">
+                                <div className="flex justify-center items-center"><img src={Mentorsvg} /></div>
+                                <div className="flex justify-center items-center mt-3">Notes</div>
+                            </div>
+                    </div>
+                    <div className="flex justify-between px-10 mt-5 gap-3">
+                            <div className="bg-[#D8F3D9] p-3 rounded-lg min-w-[100px]">
+                                <div className="flex justify-center items-center"><img src={ChatMessage} /></div>
+                                <div className="flex justify-center items-center mt-3">DE</div>
+                            </div>
+                            <div className="bg-[#D8F3D9] p-3 rounded-lg min-w-[100px] max-w-[100px]">
+                                <div className="flex justify-center items-center"><img src={Mentorshipsvg} /></div>
+                                <div className="flex justify-center items-center mt-3">Resources</div>
+                            </div>
+                    </div>
+                    <div className="flex justify-between px-10 mt-5">
+                            <div className="bg-[#D8F3D9] p-3 rounded-lg min-w-[100px]">
+                                <div className="flex justify-center items-center"><img src={Eventsvg} /></div>
+                                <div className="flex justify-center items-center mt-3">Drive</div>
+                            </div>
+                    </div>
+                </div>
+          </More>
+          
     </div>
   )
 }

@@ -150,8 +150,13 @@ catch(err)
 
                                         <div className="bg-white mt-3 rounded-md">
                                                 <div className="flex gap-6 text-sm p-3">
-                                                        <div className="">Founder</div>
-                                                        <div>Team Members</div>
+                                                        <div className="block py-2 px-3 text-black md:p-0 text-[#45C74D] hover:underline hover:underline-offset-[12px] hover:decoration-4 hover:decoration-[#45C74D]">Founder</div>
+                                                        <div className="block py-2 px-3 text-black md:p-0 text-[#45C74D] hover:underline hover:underline-offset-[12px] hover:decoration-4 hover:decoration-[#45C74D]">Team Members</div>
+                                                </div>
+                                                <div className="flex justify-between">
+                                                        <div>
+                                                            
+                                                        </div>
                                                 </div>
                                         </div>
                                 </div>
