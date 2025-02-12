@@ -102,7 +102,7 @@ function AddStartup() {
                                                         </div>
                                                   </div>
                                                   <div className="flex justify-center items-center mt-3">
-                                                      <button className="bg-[#45c74d] p-2 rounded-lg text-white">Next</button>
+                                                      <button className="bg-[#45c74d] p-2 rounded-lg text-white font-semibold">Next</button>
                                                   </div>
                                             </div>
                                     </div>
