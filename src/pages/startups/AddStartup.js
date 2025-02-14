@@ -3,6 +3,14 @@ import SideBar from "../../components/sidebar";
 import NavBar from "../../components/NavBar";
 import {AddTeams} from "../../API/API";
 import AddStartupMultiForm from "./AddStartupMultiForm";
+import exclamtionsvg from '../../assets/images/Frame (14).svg';
+import settingsvgwhite from '../../assets/images/Frame (15).svg';
+import foundersvgwhite from '../../assets/images/Frame (16).svg';
+import messagesvgwhite from '../../assets/images/Frame (17).svg';
+import Step1 from "./step/Step1";
+import Step2 from "./step/Step2";
+import Step3 from "./step/Step3";
+import Step4 from "./step/Step4";
 function AddStartup() {
   const [getData, setgetData] = useState({
     startup_name: '',
@@ -41,6 +49,15 @@ function AddStartup() {
     useEffect(() => {
         setShoww(true);
     }, [])
+    const[steps, setsteps] = useState(0);
+    const handlestepsincrement = (e) => {
+            e.preventDefault();
+            setsteps(steps + 1);
+    }
+    const handlestepsdecrement = (e) => {
+        e.preventDefault();
+        setsteps(steps - 1);
+    }
    return (
     <div className="flex">
           <div>
@@ -56,53 +73,46 @@ function AddStartup() {
                                             <div className="p-3">
                                                   <div className="text-sm text-[#808080]">Dashboard {'>'} Start-ups {'>'} Add New Start-up</div>
                                                   <div className="flex mt-4">
-                                                        <div></div>
-                                                        <div>Add New Start-up</div>
+                                                        {/* <div><img src={exclamtionsvg} /></div> */}
+                                                        <div className="text-lg">Add New Start-up</div>
                                                   </div> 
                                                   <div className="mt-4">Program <span className="text-red-600">*</span></div>
                                                   <div className="mt-2"><input type="text" className="block w-[50%] p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Select Program"/></div>
-                                                  <div className="flex justify-between mt-10 gap-6 px-3">
-                                                          <div className="bg-[#45C74D] p-2 text-white text-sm">Basic</div>
-                                                          <div className="bg-[#45C74D] p-2 text-white text-sm">Official</div>
-                                                          <div className="bg-[#45C74D] p-2 text-white text-sm">Founder</div>
-                                                          <div className="bg-[#45C74D] p-2 text-white text-sm">Description</div>
+                                                  <div className="grid grid-cols-4 mt-10  px-3 gap-5">
+                                                          <div className="bg-[#45C74D] text-white flex justify-center items-center text-lg gap-2" style={{clipPath: "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)",}}>
+                                                                <span><img src={exclamtionsvg} class /></span>
+                                                                <span className="my-2 text-lg">Basic</span > 
+                                                           </div>
+                                                          <div className="bg-[#45C74D] text-white flex justify-center items-center text-lg gap-2" style={{clipPath: "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)",}}>
+                                                                <span><img src={settingsvgwhite} class /></span>
+                                                                <span className="my-2 text-lg">Official</span >
+                                                          </div>
+                                                          <div className="bg-[#45C74D] text-white flex justify-center items-center text-lg gap-2" style={{clipPath: "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)",}}>
+                                                                <span><img src={foundersvgwhite} class /></span>
+                                                                <span className="my-2 text-lg">Founder</span >
+                                                          </div>
+                                                          <div className="bg-[#45C74D] text-white flex justify-center items-center text-lg gap-2" style={{clipPath: "polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)",}}>
+                                                                <span><img src={messagesvgwhite} class /></span>
+                                                                <span className="my-2 text-lg">Description</span >
+                                                          </div>
                                                   </div>
-                                                  <div className="grid grid-cols-2 gap-5 mt-9 px-7">
-                                                        <div>
-                                                            <div>Name of the Start-up <span className="text-red-500">*</span></div>
-                                                            <div className="mt-1"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Enter name of the Start-up"/></div>
-                                                        </div>
-                                                        <div>
-                                                            <div>Sector <span className="text-red-500">*</span></div>
-                                                            <div className="mt-1"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Select sector"/></div>
-                                                        </div>
-                                                        <div>
-                                                            <div>Start-up Type <span className="text-red-500">*</span></div>
-                                                            <div className="mt-1"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Select start-up type"/></div>
-                                                        </div>
-                                                        <div>
-                                                            <div>Start-up Industry <span className="text-red-500">*</span></div>
-                                                            <div className="mt-1"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Select Start-up Industry"/></div>
-                                                        </div>
-                                                        <div>
-                                                            <div>Start-up Technology <span className="text-red-500">*</span></div>
-                                                            <div className="mt-1"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Select Start-up technology"/></div>
-                                                        </div>
-                                                        <div>
-                                                            <div>Start-up Cohort <span className="text-red-500">*</span></div>
-                                                            <div className="mt-1"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Select Cohort"/></div>
-                                                        </div>
-                                                        <div>
-                                                            <div>Year of Graduation <span className="text-red-500">*</span></div>
-                                                            <div className="mt-1"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Enter Year of graduation"/></div>
-                                                        </div>
-                                                        <div>
-                                                            <div>Graduated To <span className="text-red-500">*</span></div>
-                                                            <div className="mt-1"><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-[#45C74D] focus:border-[#45C74D]" placeholder="Select Graduated"/></div>
-                                                        </div>
-                                                  </div>
-                                                  <div className="flex justify-center items-center mt-3">
-                                                      <button className="bg-[#45c74d] p-2 rounded-lg text-white font-semibold">Next</button>
+                                                  {steps == 0 && (
+                                                    <Step1 />
+                                                  )}
+                                                  {steps == 1 && (
+                                                    <Step2 />
+                                                  )}
+                                                  {steps == 2 && (
+                                                    <Step3 />
+                                                  )}
+                                                  {steps == 3 && (
+                                                    <Step4 />
+                                                  )}
+                                                  
+                                                  <div className="flex justify-center items-center mt-3 gap-5">
+                                                      {steps == 3 && <button className="bg-[#45c74d] p-2 rounded-lg text-white font-semibold">Submit</button>}
+                                                      {steps == 1 && steps==2 && <button className="bg-[#45c74d] p-2 rounded-lg text-white font-semibold" onClick={handlestepsdecrement}>Back</button>}
+                                                      <button  className={`bg-[#45c74d] p-2 rounded-lg text-white font-semibold ${steps==3 && 'hidden'}`} onClick={handlestepsincrement}>Next</button>
                                                   </div>
                                             </div>
                                     </div>
