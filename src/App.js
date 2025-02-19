@@ -46,7 +46,7 @@ import Sustainability from './pages/startups/Sustainability/Sustainability.js';
 import Healthcare from './pages/startups/Healthcare/Healthcare.js';
 import Mobility from './pages/startups/Mobility/Mobility.js';
 // import { ToastContainer } from 'react-toastify';
-import { Toaster } from 'react-hot-toast';
+import { Toaster, toast } from "react-hot-toast";
 import FinanceHome from './Finance/Pages/Home/Home.js';
 // import FinanceHome from './Finance/Pages/Home/Home.js'
 import FinanceUpdateFunding from './Finance/Pages/Startup/Updatefunding.js';
@@ -58,6 +58,8 @@ import Bills from './Finance/Pages/Startup/Bills.js';
 import OfficeHome from './Office/Pages/OfficeHome.js';
 import Mentor from './pages/Mentors/Mentor';
 import MentorProfile from './pages/Mentors/MentorProfile.js';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/dist/sweetalert2.min.css'
 function App() {
   const [LoggedIn, setLoggedIn] = useState(false);
   const authenticate = async() => {
@@ -92,6 +94,7 @@ function App() {
         position="top-right"
         reverseOrder={false}
       />
+      {/* <ToastContainer /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/like" element={<OfficeHome />}/>
