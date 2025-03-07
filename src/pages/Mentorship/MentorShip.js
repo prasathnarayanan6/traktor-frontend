@@ -105,7 +105,24 @@ const ScheduleButton = async(e) => {
                                 <div>Mentorship</div>
                           </div>
                           <div className="mt-1 text-xl px-3">Mentorship</div>
-                          <div className="grid grid-cols-2 gap-4 px-3 py-3">
+                          <div className="px-3 grid grid-cols-3 mt-5 gap-4">
+                              <div className="shadow shadow-lg border p-2 rounded-lg relative">
+                                    <div className="rounded-2xl absolute mt-[-18px] bg-green-100 px-2 text-sm">o</div>
+                                    <div className="text-xl pb-1 font-semibold">30,000</div>
+                                    <div className="text-sm">No.of Abhyasa Sessions Conducted</div>
+                              </div>
+                              <div className="shadow shadow-lg border p-2 rounded-lg relative">
+                                    <div className="rounded-2xl absolute mt-[-18px] bg-green-100 px-2 text-sm">o</div>
+                                    <div className="text-xl pb-1 font-semibold">14,700</div>
+                                    <div className="text-sm">No.of Venture capitalist Mentors</div>
+                              </div>
+                              <div className="shadow shadow-lg border p-2 rounded-lg relative">
+                                    <div className="rounded-2xl absolute mt-[-18px] bg-green-100 px-2 text-sm">o</div>
+                                    <div className="text-xl pb-1 font-semibold">147</div>
+                                    <div className="text-sm">IITMEF Mentors</div>
+                              </div>
+                          </div>
+                          <div className="grid grid-cols-2 gap-4 px-3 py-3 mt-3">
                                   <div><input type="text" className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/></div>
                                   <div className="flex gap-5 justify-end">
                                       <button className="border border-[#45C74D] rounded-lg p-2 text-sm">Request Mentor</button>

@@ -19,7 +19,7 @@ import professionalsvg from '../../assets/images/Frame (4).svg';
 import settingsvgblack from '../../assets/images/Frame (25).svg';
 import exclamtionwhite from '../../assets/images/Frame (26).svg';
 import settingsvgwhite from '../../assets/images/Frame (27).svg';
-// import toast from "react-hot-toast/headless";
+import SuccessAlert from '../../components/SuccessAlert';
 import toast from 'react-hot-toast';
 function AddNewMentor() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -70,7 +70,28 @@ function AddNewMentor() {
         e.preventDefault();
         setNextt(nextt - 1);
     }
-    console.log(formData);
+    const handleSubmit = async() => {
+        try
+        {
+            let result = await axios.post('http://localhost:3003/v2/mentordata', formData);
+            if(result.status == 200)
+            {
+                // alert('Data inserted');
+                SuccessAlert();
+            }
+        }
+        catch(err)
+        {
+           if(err.response.code == 400)
+           {
+                alert('Hello');
+           }
+           else
+           {
+                SuccessAlert();          
+           }
+        }
+    }
     return (
         <div className="flex">
             <div>
@@ -108,7 +129,7 @@ function AddNewMentor() {
                                             {nextt == 1 && <button className={`bg-[#45C74D] p-2 text-white rounded-lg`} onClick={handleBack}>Back</button>}
                                             {nextt == 2 && <button className={`bg-[#45C74D] p-2 text-white rounded-lg`} onClick={handleBack}>Back</button>}
                                             <button className={`bg-[#45C74D] p-2 text-white rounded-lg ${nextt == 2 && 'hidden'}`} onClick={handleNext}>Next</button>
-                                            {nextt == 2 && <button className={`bg-[#45C74D] p-2 text-white rounded-lg`}>Submit</button>}   
+                                            {nextt == 2 && <button className={`bg-[#45C74D] p-2 text-white rounded-lg`} onClick={handleSubmit}>Submit</button>}   
                                         </div>
                                     </div>
                             </div>

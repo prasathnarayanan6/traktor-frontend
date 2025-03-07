@@ -4,8 +4,8 @@ function ActionsModel({isVisible, onClose, children}) {
     const handleClose = (e) => {
         if(e.target.id === 'wrapper') onClose();
     }
+    console.log('True')
     const [isAnimating, setIsAnimating] = useState(false);
-
     useEffect(()=>{
         if(isVisible)
         {
@@ -30,5 +30,4 @@ function ActionsModel({isVisible, onClose, children}) {
         </div>
   )
 }
-
 export default ActionsModel;

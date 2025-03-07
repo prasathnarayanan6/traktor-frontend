@@ -16,11 +16,9 @@ function Mentor() {
   const [mentordata, setMentorData] = useState('');
   const [currentPage, setCurrentPage] = useState(1); 
   const [rowsPerPage, setRowsPerPage] = useState(3); 
-
   const handleClickButtonToggle = (index) => {
       setButtonToggle(buttontoggle === index ? null : index);
   }
-
   const FetchData = async () => {
     try {
       const API = await ApiFetchMentor();
@@ -30,7 +28,6 @@ function Mentor() {
       console.log(err);
     }
   }
-
   const DeleteMentorData = async (id) => {
     try {
       const API = await ApiDeletMentorData(id);
@@ -44,34 +41,28 @@ function Mentor() {
       console.log(err);
     }
   }
-
   useEffect(() => {
     FetchData();
   }, []);
-
-  // Calculate the mentors to display based on pagination
   const indexOfLastMentor = currentPage * rowsPerPage;
   const indexOfFirstMentor = indexOfLastMentor - rowsPerPage;
   const currentMentors = data.slice(indexOfFirstMentor, indexOfLastMentor);
-
   const totalPages = Math.ceil(data.length / rowsPerPage);
-
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
   };
-
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
   };
-
   const [showw, setShoww] = useState(false);
     useEffect(() => {
         setShoww(true);
-    }, [])
+  }, [])
+  
   return (
     <div className={`flex`}>
       <div>
@@ -139,8 +130,7 @@ function Mentor() {
                             </div>  
                        </div>
                   </div>  
-            </div>
-              
+            </div> 
       </div>
       <DeleteConfirmation isVisible={openEstablishPopUp} onClose={() => setOpenEstablishPopUp(false)}>
         <h1 className="text-center font-semibold text-2xl">Are you sure</h1>
